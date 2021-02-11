@@ -22,7 +22,7 @@ solicitud.onreadystatechange = muestra_contenido();
 tiempo_inic = new Date();
 var recurso = document.getElementById('recurso').value;
 solicitud.open('GET', recurso+'?nocache='+Math.random(), true);
-//solicitud.send(null);
+solicitud.send(null);
 
   
 function muestra_contenido() {
