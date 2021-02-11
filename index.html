@@ -6,15 +6,15 @@
   <title>Ejercicio 1 - Estados de la petición AJAX</title>
   <link rel="stylesheet" type="text/css" href="style.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"> </script>
-  <script type="text/javascript" src="code.js"></script>
+  <script type="text/javascript" src="codigo_ajax.js"></script>
 </head>
 
 <body>
-  <form action="#">
+  <form method="get" action="#" autocomplete="on">
     URL:
     <input value="https://moguimon.github.io/Pruebas_AJAX/index.html" type="text" id="recurso" size="70" />
     <!-- Ponemos la url de la página que quiero cargar inicialmente-->
-    <input type="button" id="enviar" value="Mostrar contenidos" />
+    <input type="button" id="enviar" value="Mostrar contenidos" onclick="codigo_ajax()" />
   </form>
 
   <div id="principal">
