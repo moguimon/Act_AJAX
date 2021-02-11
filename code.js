@@ -2,24 +2,27 @@
 // Función que pone a la espera nuestro código JavaScript, antes de que cargue la página web
 // en este caso pone a la espera la librería JQuery
 // Para hacer referencia a elementos que están en el body, que cargan después
+/*
 $(document).ready(function() {
   document.getElementeById("contenidos").addEventListener("click",cargar_url,false);
 });
 
 
+*/
+
+//Se quitan los caracteres especiales
+String.prototype.transformaCaracteresEspeciales = function(){
+  return unescape(escape(this).replace(/%0A/g, "<br/>").replace(/%3C/g, "&lt;").replace(/%3E/g, "&gt;"));
+}
 
 var estados=['No inicializado', 'Cargando', 'Cargado', 'Interactivo', 'Completado'];
 var tiempo_inic = 0;
 
-//Se quitan los caracteres especiales
-/*String.prototype.transformaCaracteresEspeciales = function(){
-  return unescape(escape(this).replace(/%0A/g, '<br/>').replace(/%3C/g, '&lt;').replace(/%3E/g, '&gt;'));
-}
-*/  
+
 window.onload=function() {
   // Cargar la URL de la página en el campo Text
-  var recurso = document.getElementById('recurso');
-  recurso.value = location.href;
+  /*var recurso = document.getElementById("recurso");
+  recurso.value = location.href;*/
     // Cargar el recurso solicitado cuando se haga 'clic' en el botón
   document.getElementById('enviar').onclick = cargar_url;
 }
@@ -36,7 +39,7 @@ function cargar_url() {
     solicitud= new ActiveXObject("Microsoft.XMLHTTP");
   }
 
-// Preparar función de respuesta
+  // Preparar función de respuesta
   solicitud.onreadystatechange = muestra_contenido();
 
   // Realizar petición

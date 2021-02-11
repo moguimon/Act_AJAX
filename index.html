@@ -10,11 +10,12 @@
 </head>
 
 <body>
-  <form action="#">
+  <form action="#" method="get">
     URL:
     <input value="https://moguimon.github.io/Pruebas_AJAX/index.html" type="text" id="recurso" size="70" />
     <!-- Ponemos la url de la página que quiero cargar inicialmente-->
-    <input type="button" id="enviar" value="Mostrar contenidos" />
+    <input type="button" id="enviar" value="Mostrar contenidos" onclick="code()" />
+    <!-- llamamos a la funcion y cargamos los datos cuando se pulsa el botón aceptar-->
   </form>
 
   <div id="principal">
