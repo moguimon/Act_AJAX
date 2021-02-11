@@ -1,32 +1,33 @@
 //Se quitan los caracteres especiales
-/*String.prototype.transformaCaracteresEspeciales = function(){
+String.prototype.transformaCaracteresEspeciales = function(){
   return unescape(escape(this).replace(/%0A/g, "<br/>").replace(/%3C/g, "&lt;").replace(/%3E/g, "&gt;"));
-}*/
+}
 
 var estados=["No inicializado", "Cargando", "Cargado", "Interactivo", "Completado"];
 var tiempo_inic = 0;
 
 window.onload = function(){
   //Carga la URL y llama a la funcion cargar_url
-
+  var recurso=document.getElementById("recurso");
+  recurso.value= location.href;
   document.getElementById("enviar").onclick=cargar_contenido;
 }
 // Borra lo que hay en los contenedores
 
 function cargar_contenido(){
   // Borro el contenido de los contenedores
-  document.getElementById("contenidos").innerHTML = " ";
+  document.getElementById("contenidos").innerHTML = "";
   //document.getElementById("cabeceras").innerHTML = " ";
-  document.getElementById("estados").innerHTML = " ";
+  document.getElementById("estados").innerHTML = "";
   //document.getElementById("codigo").innerHTML = " ";
-  // Creo el XHR y realizo la solicitud al servidor
+  // Si hay peticiones ,creo el XHR y realizo la solicitud al servidor
   if(window.XMLHttpRequest) {
     solicitud = new XMLHttpRequest(); //instancio el objeto
   }else {
     solicitud= new ActiveXObject("Microsoft.XMLHTTP");
   }
   // Preparar función de respuesta
-  solicitud.onreadystatechange = muestra_contenido(); // se invoca cdo que se produce un cambio en la peticion
+  solicitud.onreadystatechange = muestra_contenido; // se invoca cdo que se produce un cambio en la peticion
   // Se realiza la petición
   tiempo_inic = new Date();
   var recurso = document.getElementById('recurso').value;
