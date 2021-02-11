@@ -6,24 +6,32 @@
 var estados=['No inicializado', 'Cargando', 'Cargado', 'Interactivo', 'Completado'];
 var tiempo_inic = 0;
 
+window.onload = function(){
+  //Carga la URL y llama a la funcion cargar_url
+  var mirecurso=document.getElementById("recurso");
+  mirecurso.value=location.href;
+  document.getElementById("enviar").onclick=cargar_contenido;
+}
 // Borra lo que hay en los contenedores
 
-document.getElementById('contenidos').innerHTML = "";
-document.getElementById('estados').innerHTML = "";
-// Creo el XHR y realizo la solicitud al servidor
-if(window.XMLHttpRequest) {
-  solicitud = new XMLHttpRequest();
-}else {
-  solicitud= new ActiveXObject("Microsoft.XMLHTTP");
+function cargar_contenido(){
+  // Boroo el contenido de los contenedores
+  document.getElementById('contenidos').innerHTML = "";
+  document.getElementById('estados').innerHTML = "";
+  // Creo el XHR y realizo la solicitud al servidor
+  if(window.XMLHttpRequest) {
+    solicitud = new XMLHttpRequest(); //instancio el objeto
+  }else {
+    solicitud= new ActiveXObject("Microsoft.XMLHTTP");
+  }
+  // Preparar función de respuesta
+  solicitud.onreadystatechange = muestra_contenido(); // se invoca cdo que se produce un cambio en la peticion
+  // Se realiza la petición
+  tiempo_inic = new Date();
+  var recurso = document.getElementById('recurso').value;
+  solicitud.open('GET', recurso+'?nocache='+Math.random(), true);
+  solicitud.send(null);
 }
-// Preparar función de respuesta
-solicitud.onreadystatechange = muestra_contenido();
-// Realizar petición
-tiempo_inic = new Date();
-var recurso = document.getElementById('recurso').value;
-solicitud.open('GET', recurso+'?nocache='+Math.random(), true);
-solicitud.send(null);
-
   
 function muestra_contenido() {
   var tiempo_fin = new Date();
