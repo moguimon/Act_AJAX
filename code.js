@@ -6,23 +6,23 @@
 $(document).ready(function() {
   document.getElementeById("contenidos").addEventListener("click",cargar_url,false);
 });
-
-
 */
 
+
+
 //Se quitan los caracteres especiales
-String.prototype.transformaCaracteresEspeciales = function(){
+/*String.prototype.transformaCaracteresEspeciales = function(){
   return unescape(escape(this).replace(/%0A/g, "<br/>").replace(/%3C/g, "&lt;").replace(/%3E/g, "&gt;"));
 }
-
+*/
 var estados=['No inicializado', 'Cargando', 'Cargado', 'Interactivo', 'Completado'];
 var tiempo_inic = 0;
 
 
 window.onload=function() {
   // Cargar la URL de la página en el campo Text
-  /*var recurso = document.getElementById("recurso");
-  recurso.value = location.href;*/
+  var recurso = document.getElementById("recurso");
+  recurso.value = location.href;
     // Cargar el recurso solicitado cuando se haga 'clic' en el botón
   document.getElementById('enviar').onclick = cargar_url;
 }
