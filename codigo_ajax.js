@@ -1,15 +1,14 @@
 //Se quitan los caracteres especiales
-String.prototype.transformaCaracteresEspeciales = function(){
+/*String.prototype.transformaCaracteresEspeciales = function(){
   return unescape(escape(this).replace(/%0A/g, "<br/>").replace(/%3C/g, "&lt;").replace(/%3E/g, "&gt;"));
-}
+}*/
 
 var estados=['No inicializado', 'Cargando', 'Cargado', 'Interactivo', 'Completado'];
 var tiempo_inic = 0;
 
 window.onload = function(){
   //Carga la URL y llama a la funcion cargar_url
-  var mirecurso=document.getElementById("recurso");
-  mirecurso.value=location.href;
+
   document.getElementById("enviar").onclick=cargar_contenido;
 }
 // Borra lo que hay en los contenedores
