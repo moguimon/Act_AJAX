@@ -1,5 +1,3 @@
-
-
 //Se quitan los caracteres especiales
 /*String.prototype.transformaCaracteresEspeciales = function(){
   return unescape(escape(this).replace(/%0A/g, "<br/>").replace(/%3C/g, "&lt;").replace(/%3E/g, "&gt;"));
@@ -9,6 +7,8 @@ var estados=['No inicializado', 'Cargando', 'Cargado', 'Interactivo', 'Completad
 var tiempo_inic = 0;
 
 // Borra lo que hay en los contenedores
+var recurso = document.getElementById("recurso");
+recurso.value=location.href;
 document.getElementById('contenidos').innerHTML = "";
 document.getElementById('estados').innerHTML = "";
 // Creo el XHR y realizo la solicitud al servidor
