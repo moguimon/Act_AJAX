@@ -7,10 +7,9 @@ var estados=['No inicializado', 'Cargando', 'Cargado', 'Interactivo', 'Completad
 var tiempo_inic = 0;
 
 // Borra lo que hay en los contenedores
-var mirecurso = document.getElementById("recurso");
-mirecurso.value=location.href;
-document.getElementById('contenidos').innerHTML = "";
-document.getElementById('estados').innerHTML = "";
+
+//document.getElementById('contenidos').innerHTML = "";
+//document.getElementById('estados').innerHTML = "";
 // Creo el XHR y realizo la solicitud al servidor
 if(window.XMLHttpRequest) {
   solicitud = new XMLHttpRequest();
