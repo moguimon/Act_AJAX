@@ -15,9 +15,9 @@ window.onload = function(){
 // Borra lo que hay en los contenedores
 
 function cargar_contenido(){
-  // Boroo el contenido de los contenedores
-  document.getElementById('contenidos').innerHTML = "";
-  document.getElementById('estados').innerHTML = "";
+  // Borro el contenido de los contenedores
+  document.getElementById('contenidos').innerHTML = " ";
+  document.getElementById('estados').innerHTML = " ";
   // Creo el XHR y realizo la solicitud al servidor
   if(window.XMLHttpRequest) {
     solicitud = new XMLHttpRequest(); //instancio el objeto
