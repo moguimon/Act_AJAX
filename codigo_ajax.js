@@ -3,7 +3,7 @@
   return unescape(escape(this).replace(/%0A/g, "<br/>").replace(/%3C/g, "&lt;").replace(/%3E/g, "&gt;"));
 }*/
 
-var estados=['No inicializado', 'Cargando', 'Cargado', 'Interactivo', 'Completado'];
+var estados=["No inicializado", "Cargando", "Cargado", "Interactivo", "Completado"];
 var tiempo_inic = 0;
 
 window.onload = function(){
@@ -15,8 +15,10 @@ window.onload = function(){
 
 function cargar_contenido(){
   // Borro el contenido de los contenedores
-  document.getElementById('contenidos').innerHTML = " ";
-  document.getElementById('estados').innerHTML = " ";
+  document.getElementById("contenidos").innerHTML = " ";
+  document,getElementById("cabeceras").innerHTML = " ";
+  document.getElementById("estados").innerHTML = " ";
+  document.getElementById("codigo").innerHTML = " ";
   // Creo el XHR y realizo la solicitud al servidor
   if(window.XMLHttpRequest) {
     solicitud = new XMLHttpRequest(); //instancio el objeto
